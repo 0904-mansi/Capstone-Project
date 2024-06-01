@@ -66,10 +66,6 @@ Employees have limited access to the system, focusing on updating personal infor
     ```python
     pip install django
     ```
-- Install Pipenv for Virtual Environment, run the command...
-    ```python
-    pip install pipenv
-    ```
 - Clone the repository to your local system.
 - Setup PostgreSQL Database and update database name and password in settings.py file in employeemanagement.
 - Make the Migrations, run the command
@@ -84,7 +80,7 @@ Employees have limited access to the system, focusing on updating personal infor
     ```python
     python manage.py runserver
     ```
-- Hola, It's running !!
+- Access the application on ``http://127.0.0.1:8000/``
 
 ### Directory Structure
 
@@ -194,3 +190,42 @@ Employee-Management-System
         |__ viewproject.html
 ```
 </details>
+
+## Unit Test Coverage of 90%
+
+```
+Name                                                                                       Stmts   Miss  Cover
+--------------------------------------------------------------------------------------------------------------
+accounts/__init__.py                                                                           0      0   100%
+accounts/admin.py                                                                              1      0   100%
+accounts/apps.py                                                                               6      0   100%
+accounts/models.py                                                                             2      0   100%
+accounts/signals.py                                                                           16      0   100%
+accounts/tests.py                                                                            136      0   100%
+accounts/urls.py                                                                               4      0   100%
+accounts/views.py                                                                            139     50    64%
+employee/__init__.py                                                                           0      0   100%
+employee/admin.py                                                                             15      1    93%
+employee/apps.py                                                                               4      0   100%
+employee/forms.py                                                                             15      0   100%
+employee/models.py                                                                           103      3    97%
+employee/tests.py                                                                            132      0   100%
+employee/urls.py                                                                               3      0   100%
+employee/views.py                                                                             86     25    71%
+empmanagement/__init__.py                                                                      0      0   100%
+empmanagement/settings.py                                                                     30      0   100%
+empmanagement/urls.py                                                                          5      0   100%
+manage.py                                                                                     11      2    82%
+manager/__init__.py                                                                            0      0   100%
+manager/admin.py                                                                               3      0   100%
+manager/apps.py                                                                                4      0   100%
+manager/forms.py                                                                              17      0   100%
+manager/migrations/__init__.py                                                                 0      0   100%
+manager/tests.py                                                                              86      0   100%
+manager/urls.py                                                                                3      0   100%
+manager/views.py                                                                             149     38    74%
+--------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                       1202    119    90%
+```
+
+## View Live Coverage Report [here](https://unit-testcoverage.static.domains/)
