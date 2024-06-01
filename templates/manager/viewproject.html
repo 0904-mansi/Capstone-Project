@@ -1,0 +1,53 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+<section style="background-color: #2A2C2E;" class="home">
+    <div class="text">
+      <h2 style="color:#f2f2f2; text-align: center; margin-bottom: 20px; margin-top: 20px;"><b> View Projects </b></h2>
+
+        
+    </div>
+    <div class="max-w-xl mx-auto">
+      <div
+         class="p-4 max-w-md bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700"
+         >
+      <div class="flex justify-between items-center mb-4">
+         <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white">
+            Projects assigned to you..
+         </h3>
+      </div>
+      <div class="flow-root">
+      <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+      {% for info in projects %}
+      <div class="flex items-center space-x-4">
+         <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+               Title: <b>{{info.name}}</b>
+            </p>
+         </div>
+      </div>
+      Description: {{info.description}}<br>
+      Assigned By: {{info.assigner}}<br>
+      Managed By: {{info.project_manager}}<br>
+      Assigned to: {{info.tasker}}<br>
+      Start Date: {{info.start_date}}<br>
+      Due Date: {{info.end_date}}<br>
+
+      <div style="overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1; /* number of lines to show */
+              line-clamp: 1; 
+      -webkit-box-orient: vertical;">
+      <!-- <b>Request Status : </b> {{info.status}}<br> -->
+   </div>
+      <!-- <a style="color: black;" href = "{% url 'projectdetails' wid=info.id %}">View Details</a> -->
+      <!-- <br> -->
+
+      
+      <div style="height: 2px; width: 500; background-color: black; border-radius: 10px; margin:10px 0px;"></div>
+      {% endfor %}
+    
+    
+</section>
+{% endblock %}

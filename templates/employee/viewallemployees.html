@@ -1,0 +1,23 @@
+<!-- viewallemployees.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<section class="employees">
+    <h2 style=" color:white; text-align: center; margin-bottom: 20px; margin-top: 20px;"><b>All Employees</b></h2>
+    <ul style="list-style-type: none; padding: 0; margin: 0;">
+        {% for employee in employees %}
+            <li style="margin-bottom: 10px; margin-left: 20%; margin-right: 20%; padding: 10px; background-color: #f2f2f2; border-radius: 5px;">
+                <span style="font-weight: bold;">{{ employee.firstName }} {{ employee.lastName }}</span><br>
+                <span>ID: {{ employee.eID }}</span><br>
+                <span>Email: {{ employee.email }}</span><br>
+                <span>Phone: {{ employee.phoneNo }}</span><br>
+
+                <!-- Display other employee details as needed -->
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

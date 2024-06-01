@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet"> -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lobster+Two&family=Raleway:wght@100&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
+    <title>Employee SignUp</title>
+    <style>
+        body {
+            background-color: rgba(255, 255, 255, 0.5);
+            box-sizing: border-box;
+            background-image: url('https://t3.ftcdn.net/jpg/06/10/01/18/360_F_610011817_h3OvYK0yx35KFiEpeHph1GoFHCcDCE0H.jpg');
+            background-size: cover;
+            color: white;
+        }
+
+        .login {
+            /* box-shadow: -2px 5px 30px 0.5px rgb(168, 168, 168); */
+            border-radius: 5%;
+            width: 50%;
+            margin-top: 7%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border: none;
+            margin-left: 5%;
+            align-items: center;
+
+        }
+
+        .imgs {
+            height: 73vh;
+            width: 45vw;
+            background-color: white;
+            border: none;
+            align-self: flex-start;
+
+        }
+
+        .login-form {
+            padding-top: 15vh;
+            height: 58vh;
+
+            width: 45vw;
+            /* background-color: white; */
+            align-self: flex-end;
+            border: none;
+            font-family: 'Lobster Two', cursive;
+            font-family: 'Raleway', sans-serif;
+            font-family: 'Ubuntu', sans-serif;
+            color: white;
+        }
+
+        table {
+            padding-top: 0vh;
+        }
+
+        tr {
+            line-height: 3vh;
+        }
+
+        input[type=text],
+        input[type=password] {
+            border: none;
+            border-bottom: 0.5px solid black;
+        }
+
+        input[type=submit] {
+            margin-top: 5vh;
+            padding: 1vh 2vh;
+            background-color: white;
+            border: none;
+            color: black;
+            border-radius: 0.5vh;
+        }
+        a
+        {
+            text-decoration: none;
+            font-size: small;
+        }
+        img
+        {
+            padding-top: 17vh;
+            height:50%;
+            
+        }
+        .err_message
+        {
+            
+            color:green;
+        }
+        .success_message
+        {
+            
+            color:green;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#" style="color: white; text-decoration: none; margin-left: 10%; ">
+        NucleusTeq</a>
+    </nav>
+    <div class="login">
+        
+        <!-- <div class="imgs"><img src="{% static 'assets/welcome.webp' %}"></div> -->
+        <div class="login-form">
+           <b>Employee SignUp</b>
+            <form action="" method="post">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>Id</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="id" required></td><br>
+                    </tr>
+                    <tr>
+                        <td>Role</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="role" required placeholder="Employee or Manager"></td><br>
+                    </tr>
+                    <tr>
+                        <td><b>Email</b></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="email" required></td><br>
+                    </tr>
+                    <tr class="pass">
+                        <td><br>Password</td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" name="password" required></td><br>
+                    </tr>
+                    <tr class="pass">
+                        <td><br>Confirm Password</td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" name="cnfpass" required></td><br>
+                    </tr>
+                </table>
+                <input type="submit" value="Sign Up"><br><br>
+                
+                    {% for msg in messages %}
+                        {% if msg == "Registered Successfully" %}
+                            <div class="success_message">
+                                {{msg}}
+                            </div>
+                        {% else %}
+                            <div class="err_message">
+                                {{msg}}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                
+            </form>
+        </div>
+    </div>
+    
+    
+</body>
+
+</html>

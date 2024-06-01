@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+<style>
+  body{
+    background-color: #444;
+  }
+</style>
+{% block content %}
+<body>
+  
+
+<section class="home">
+  <div style="background-color: #2A2C2E;" class="text">
+    <h2 style="color:#f2f2f2; text-align: center; margin-bottom: 20px; margin-top: 20px;"><b>  Your Profile</b></h2>
+
+  
+    {% for info in info %}
+    <div class="flex flex-col">
+      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="overflow-hidden">
+            <table class="min-w-full">
+              <thead style=" background-color: black;" class="bg-white border-b">
+                <tr>
+                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    <div class="text" style="font-size: 18px; padding:5px; color:White;">Hello, {{info.firstName}}
+                    </div>
+                  </th>
+                  <th style="color: white;" scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    YOUR INFO
+                  </th>
+                </tr>
+              </thead>
+              <tbody style="line-height: .5;" >
+                <!-- Employee ID -->
+                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Employee ID
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{user.username}}
+                  </td>
+                </tr>
+                <!-- Employee First Name -->
+                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    First Name
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{info.firstName}}
+                  </td>
+                </tr>
+                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Middle Name
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{info.middleName}}
+                  </td>
+                </tr>
+                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Last Name
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{info.lastName}}
+                  </td>
+                </tr>
+                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Phone Number
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{info.phoneNo}}
+                  </td>
+                </tr>
+                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Email
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{info.email}}
+                  </td>
+                </tr>
+                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Date of Birth:
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{info.dOB}}
+                  </td>
+                </tr>
+                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Aadhar Number:
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{info.addharNo}}
+                  </td>
+                </tr>
+                <!-- <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Designation:
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{info.designation}}
+                  </td>
+                </tr> -->
+                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Salary:
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{info.salary}}
+                  </td>
+                </tr>
+                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Joining Date:
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{info.joinDate}}
+                  </td>
+                </tr>
+
+                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Availability:
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{info.availability}}
+                  </td>
+                </tr>
+                <!-- <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Manager:
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{ info.manager.firstName }} {{ info.manager.lastName }}
+                  </td>
+                </tr> -->
+                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      Manager:
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      {% if info.manager_id %}
+                          {{ info.manager_id }} 
+                      {% else %}
+                          No Manager Assigned
+                      {% endif %}
+                  </td>
+              </tr>
+              
+                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Skills:
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{info.skills}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- Skill update form -->
+
+            <form action="{% url 'updateskills' %}" method="post">
+              {% csrf_token %}
+              <div class="flex flex-col">
+                <h2 style="color: white;">Update Skills</h2>
+                {% if messages %}
+                {% for message in messages %}
+                <div style="color: green;" alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                {% endif %}
+                <input type="text" id="skills" name="skills" placeholder="Enter skills separated by commas">
+                <button type="submit"
+                  style="height:45px; margin-top: 2%; width:150px; border-radius: 20px; background-color: black; color:white;">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {% endfor %}
+
+
+</section>
+{% endblock %}
+
+</body>

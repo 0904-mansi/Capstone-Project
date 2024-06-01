@@ -1,0 +1,54 @@
+
+{% extends 'base2.html' %}
+
+{% block content %}
+<section class="home">
+    <div class="text">
+        My Projects 
+    </div>
+    <div class="max-w-xl mx-auto">
+      <div
+         class="p-4 max-w-md bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700"
+         >
+      <div class="flex justify-between items-center mb-4">
+         <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white">
+            Project
+         </h3>
+      </div>
+      <div class="flow-root">
+      <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+      {% for info in project %}
+      <li>{{ project.name }}</li>
+      <div class="flex items-center space-x-4">
+         <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+               <!-- Project: {{info.name}} -->
+               Assigned By: <b>{{info.assigner}}</b>
+            </p>
+
+            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+               <!-- Project: {{info.name}} -->
+               Managed By: <b>{{info.requester}}</b>
+            </p>
+         </div>
+      </div>
+      
+      <div style="overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1; /* number of lines to show */
+              line-clamp: 1; 
+      -webkit-box-orient: vertical;">
+      Project Details :  {{info.description}}<br>
+      
+      
+   </div>
+      <a style="color:black;" href = "{% url 'projectdetails' wid=info.id %}"><b>View Details</b></a>
+      <br>
+      <div style="height: 2px; width: 500; background-color: black; border-radius: 10px; margin:10px 0px;"></div>
+
+      
+      {% endfor %}
+   
+</section>
+{% endblock %}

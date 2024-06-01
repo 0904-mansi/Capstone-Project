@@ -1,0 +1,41 @@
+<!-- viewallemployees.html -->
+
+{% extends 'base2.html' %}
+{% block content %}
+<section class="employees">
+    <script>
+        function submitBothForms() {
+            document.getElementById("form1").submit();
+            document.getElementById("form2").submit();
+        }
+    </script>
+<h2 style=" color:white; text-align: center; margin-bottom: 20px; margin-top: 20px;"><b>All Employees</b></h2>
+
+<div style="display: flex; justify-content: space-between;">
+    <form id="filterForm" method="get" action="{% url 'filteredassignedemployees' %}">
+        <label for="skill_query" style="margin-left: 300px; margin-top: 10px; color: #f2f2f2;"><b>Filter by Skills:</b></label>
+        <input style="margin-bottom: 50px; margin-right: 0px; width: 200px;" type="text" id="skill_query" name="skill_query" value="{{ skill_query }}">
+        
+        <label for="project_query" style="margin-left: 10px; margin-top: 10px; margin-right: 20px; color: #f2f2f2;"><b>Filter by Availability:</b></label>
+        <input style="margin-bottom: 50px; margin-right: 20px; width: 200px;" type="text" id="project_query" name="project_query" value="{{ project_query }}">
+        
+        <button style="height:30px; width:150px; margin-right: 10px; border-radius: 20px; background-color: black; color:white; margin-left:10px" type="submit">Filter</button>
+    </form>
+</div>
+
+    <ul style="list-style-type: none; padding: 0; margin: 0;">
+        {% for employee in employees %}
+            <li style="margin-bottom: 10px; margin-left: 20%; margin-right: 20%; padding: 10px; background-color: #f2f2f2; border-radius: 5px;">
+                <span style="font-weight: bold;">{{ employee.firstName }} {{ employee.lastName }}</span><br>
+                <span>Employee ID: {{ employee.eID }}</span><br>
+                <span>Email: {{ employee.email }}</span><br>
+                <span>Phone: {{ employee.phoneNo }}</span><br>
+                <span>Skills: {{ employee.skills }}</span><br>
+                <span>Project: {{ employee.project_id }}</span><br>
+                <span>Availability: {{ employee.availability }}</span><br>
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %} 
+

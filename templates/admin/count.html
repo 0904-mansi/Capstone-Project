@@ -1,0 +1,64 @@
+
+<style>
+body{
+    background-color: #2A2C2E;
+}
+.info-boxes {
+  display: flex; /* Arrange the boxes in a row */
+  gap: 10px; /* Add some space between the boxes */
+}
+
+.info-box {
+  background-color: black; /* Set the background color to black */
+  color: white; /* Set the text color to white */
+  padding: 20px; /* Add some padding */
+  width: 200px; /* Set a fixed width for a square-like appearance */
+  height: 100px; /* Set a fixed height for a square-like appearance */
+  display: flex; /* Use flexbox for internal content alignment */
+  flex-direction: column; /* Arrange content in a column */
+  justify-content: center; /* Center the content vertically */
+  align-items: center; /* Center the content horizontally */
+  text-align: center;
+  border-radius: 5px; /* Center the text */
+  /* border: 2px solid white; Optional: Add a white border for better visibility */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Optional: Adjust the headings and paragraphs inside the info-box */
+.info-box h3 {
+  margin: 0;
+  font-size: 1em; /* Adjust the font size if necessary */
+}
+
+.info-box p {
+  margin: 5px 0 0; /* Adjust the margin to space out the paragraph from the heading */
+  font-size: 0.9em; /* Adjust the font size if necessary */
+}
+
+</style>
+<body>
+    
+
+<div class="info-boxes">
+    <div class="info-box">
+      <h3>Total Employees</h3>
+      <p>{{ total_employees }}</p>
+    </div>
+    <div class="info-box">
+      <h3>Total Managers</h3>
+      <p>{{ total_managers }}</p>
+    </div>
+    <div class="info-box">
+      <h3>Total Requests</h3>
+      <p>{{ total_requests }}</p>
+    </div>
+    <div class="info-box">
+      <h3>Total Projects</h3>
+      <p>{{ total_projects }}</p>
+    </div>
+    <div class="info-box">
+      <h3>Total Notices</h3>
+      <p>{{ total_notices }}</p>
+    </div>
+  </div>
+</body>

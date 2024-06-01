@@ -1,0 +1,24 @@
+<!-- update_skills.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="updateskills">
+    <h2>Update Skills</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form method="post" action="{% url 'updateskills' %}">
+        {% csrf_token %}
+        <label for="skills">Enter your skills here</label>
+        <input type="text" id="skills" name="skills" >
+        <button type="submit">Update Skills</button>
+    </form>
+    
+</section>
+{% endblock %}

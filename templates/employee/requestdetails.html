@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section style="background-color: #2A2C2E;" class="home">
+    <div class="text">
+        <h2 style="color:#f2f2f2; text-align: center; margin-bottom: 20px; margin-top: 20px;"><b>Request Details</b></h2>
+        
+    <div class="flex flex-col">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+                <table class="min-w-full">
+                <thead class="bg-white border-b">
+                    <tr>
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                        <div class="text" style="font-size: 18px; padding:5px 0px; color:black;">Request Details</div>
+                    </th>
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        Requested By
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {{requestdetail.employee}}
+                    </td>
+                    </tr>
+                    <!-- Employee First Name -->
+                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        Reason
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {{requestdetail.reason}}
+                    </td>
+                    </tr>
+                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        Start Date
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {{requestdetail.start_date}}
+                    </td>
+                    </tr>
+                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        End Date
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {{requestdetail.end_date}}
+                    </td>
+                    </tr>
+                                        
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+  
+    
+</section>
+{% endblock %}

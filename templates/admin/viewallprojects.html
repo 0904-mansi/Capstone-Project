@@ -1,0 +1,27 @@
+
+<style>
+
+    body{
+        background-color: #2A2C2E;
+        color: black;
+    }
+ </style>
+ 
+ <body>
+ 
+{% block content %}
+<section class="projects">
+    <h2 style=" color:white; text-align: center; margin-bottom: 20px; margin-top: 20px;"><b>All Projects</b></h2>
+    <ul style="list-style-type: none; padding: 0; margin: 0;">
+        {% for project in projects %}
+            <li style="margin-bottom: 10px; margin-left: 20%; margin-right: 20%; padding: 10px; background-color: #f2f2f2; border-radius: 5px;">
+                <span style="font-weight: bold;">{{ project.id }} {{ project.name }}</span><br>
+                <span>Description: {{ project.description }}</span><br>
+                <span>Manager: {{ project.project_manager_id }}</span><br>
+                <!-- Display other employee details as needed -->
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}
+ </body>

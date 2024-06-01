@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customized Sidebar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            font-family: "Merriweather", serif;
+        }
+        body {
+            color: black;
+            margin: 0;
+            padding: 0;
+            transition: margin-left 0.3s;
+        }
+
+        .navbar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: black;
+            overflow-x: hidden;
+            padding-top: 20px;
+            transition: width 0.3s;
+        }
+
+        .navbar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: black;
+        }
+
+        .main-content {
+            margin-left: 260px;
+            /* Same as the width of the sidebar */
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        .navbar .icon {
+            margin-right: 10px;
+        }
+
+        .navbar-toggle {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 15px 20px;
+            font-size: 18px;
+            color: #fff;
+            background-color: black;
+            cursor: pointer;
+        }
+
+        #content-related {
+            display: none;
+            background-color: transparent;
+        }
+
+        .recent-actions {
+            padding: 15px 20px;
+        }
+
+        .recent-actions h2,
+        .recent-actions h3,
+        .recent-actions ul,
+        .recent-actions p {
+            color: #fff;
+        }
+
+        .bottom-content {
+            position: absolute;
+            margin-top: 150px;
+            background-color: transparent;
+            right: 20;
+            margin-bottom: 0%;
+            height: 100%;
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    {% if user.is_authenticated %}
+    <div class="navbar" id="sidebar">
+        <div class="image-text">
+            <!-- <span class="image" style="display: flex; align-items: center;">
+                <img style="height: 30px; border-radius: 3px; margin-left: 20px; " src="https://media.licdn.com/dms/image/C560BAQGJvjX3yQHzDA/company-logo_200_200/0/1630648538360/nucleusteq_logo?e=2147483647&v=beta&t=UmgUlkG9jcHlYyKUAj1JGlxPloha-eqZwheyBYnCIEQ" alt=""> 
+                <h3 style="color: #fff; align-items: center; margin-top: 30px;" class="name"><b>NucleusTeq</b> </h3>
+            </span> -->
+        </div>
+        <div style="margin-top: 10px;">
+        <!-- <a href="{% url 'admin:logout' %}"><i class="fas fa-login icon"></i>Login Page</a> -->
+        <a href="/admin/"><i class="fas fa-home icon"></i>Home</a>
+        <a href="https://mail.google.com/" ><i class="fas fa-envelope icon"></i>Email</a>
+        <a href="https://calendar.google.com/"><i class="fas fa-calendar-alt icon"></i>Schedule</a>
+        <a href="/viewallmanagers"><i class="fas fa-users icon"></i>All Managers</a>
+        <a href="/viewallemployees"><i class="fas fa-users icon"></i>All Employees</a>
+        <a href="/viewallprojects"><i class="fas fa-project-diagram icon"></i>All Projects</a>
+        <a href="/viewallrequests"><i class="fas fa-clipboard-list icon"></i>All Requests</a>
+        <a href="/viewallnotices"><i class="fas fa-bell icon"></i>All Notices</a>
+        <a style="margin-top: 260px;" href="/"><i class="fas fa-sign-out-alt icon"></i>Log Out</a>
+            
+    </div>
+    </div>
+
+    {% endif %}
+
+    <script>
+        document.getElementById('navbar-toggle').addEventListener('click', function () {
+            var navbar = document.getElementById('sidebar');
+            var mainContent = document.getElementById('main-content');
+            if (navbar.style.width === '0px' || navbar.style.width === '') {
+                navbar.style.width = '250px';
+                mainContent.style.marginLeft = '260px';
+            } else {
+                navbar.style.width = '0px';
+                mainContent.style.marginLeft = '0';
+            }
+        });
+
+        document.getElementById('toggle-button').addEventListener('click', function () {
+            var content = document.getElementById('content-related');
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                this.innerHTML = '<i class="fas fa-history icon"></i> Hide Recent Actions';
+            } else {
+                content.style.display = 'none';
+                this.innerHTML = '<i class="fas fa-history icon"></i> Show Recent Actions';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
+

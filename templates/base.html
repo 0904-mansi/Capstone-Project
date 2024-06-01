@@ -1,0 +1,162 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="{% static './css/style.css' %}">
+
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css' rel='stylesheet'>
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+    <title>Employee Management System</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        body{
+            background-color: #2A2C2E;
+        }
+        * {
+            font-family: "Merriweather", serif;
+        }
+        .sidebar{
+            background-color: black;
+            color: white;
+        }
+        .text{
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="https://media.licdn.com/dms/image/C560BAQGJvjX3yQHzDA/company-logo_200_200/0/1630648538360/nucleusteq_logo?e=2147483647&v=beta&t=UmgUlkG9jcHlYyKUAj1JGlxPloha-eqZwheyBYnCIEQ"
+                        alt="">
+                </span>
+
+                <div style="color: white;" class="text logo-text">
+                    <span style="color: white;"class="name">NucleusTeq</span>
+                </div>
+            </div>
+
+            <i class='toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="/employee/dashboard">
+                            <i style="color: white;"class='bx bx-user icon'></i>
+                            <span style="color: white;" class="text nav-text">Your Profile</span>
+                        </a>
+                    </li>
+
+                    <!-- <li class="nav-link">
+                        <a href="/employee/assignwork" style="color: black;">
+                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                            <span class="text nav-text">Assign Project</span>
+                        </a>
+                    </li> -->
+
+                    <li class="nav-link">
+                        <a href="/employee/notice">
+                            <i style="color: white;" class='bx bx-bell icon'></i>
+                            <span style="color: white;" class="text nav-text">Notice</span>
+                        </a>
+                    </li>
+
+                    <!-- <li class="nav-link">
+                        <a href="/employee/makeRequest">
+                            <i class='bx bx-message-error icon' ></i>
+                            <span class="text nav-text">Request</span>
+                        </a>
+                    </li> -->
+
+                    <li class="nav-link">
+                        <a href="/employee/attendance">
+                            <i style="color: white;" class='bx bx-calendar-check icon'></i>
+                            <span style="color: white;" class="text nav-text">Attendance</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/employee/myproject">
+                            <i style="color: white;" class='bx bx-task icon'></i>
+                            <span style="color: white;" class="text nav-text">My Projects</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/employee/empleaverequest">
+                            <i style="color: white;" class='bx bx-task icon'></i>
+                            <span style="color: white;" class="text nav-text">Leave Requests</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="https://mail.google.com/">
+                            <i style="color: white;" class='bx bx-envelope icon'></i>
+                            <span style="color: white;" class="text nav-text">Email</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="https://calendar.google.com/">
+                            <i style="color: white;" class='bx bx-calendar icon'></i>
+                            <span style="color: white;" class="text nav-text">Schedule</span>
+                        </a>
+                    </li>
+                    
+
+                
+
+                    <li class="nav-link">
+                        <a href="/employee/viewallemployees">
+                            <i style="color: white;" class='bx bx-group icon'></i>
+                            <span style="color: white;" class="text nav-text">All Employees</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/employee/viewallmanagers">
+                            <i style="color: white;" class='bx bx-user-circle icon'></i>
+                            <span style="color: white;" class="text nav-text">All Managers</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="/logout">
+                        <i style="color: white;" class='bx bx-log-out icon'></i>
+                        <span style="color: white;" class="text nav-text">Logout</span>
+                    </a>
+                </li>
+            </div>
+        </div>
+
+    </nav>
+
+
+    {% block content %}
+
+    {% endblock %}
+
+
+    <script src="{% static './js/script.js' %}"></script>
+
+</body>
+
+</html>
