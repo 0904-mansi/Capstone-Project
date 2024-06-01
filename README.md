@@ -85,3 +85,112 @@ Employees have limited access to the system, focusing on updating personal infor
     python manage.py runserver
     ```
 - Hola, It's running !!
+
+### Directory Structure
+
+
+<details>
+<summary><b>View Directory Structure</b></summary>
+
+
+```
+Employee-Management-System
+├── accounts
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── signals.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── employee
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── empmanagement
+│   ├── settings.py
+│   ├── static
+│   │   ├── assets
+│   │   │   ├── Team.jpg
+│   │   │   ├── logo.png
+│   │   │   └── welcome.webp
+│   │   ├── css
+│   │   │   └── style.css
+│   │   └── js
+│   │       └── script.js
+│   ├── urls.py
+│   └── wsgi.py
+├── logs
+│   └── debug.log
+├── manage.py
+├── manager
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── requirements.txt
+└── templates
+    ├── admin
+    │   ├── app_list.html
+    │   ├── base.html
+    │   ├── base_site.html
+    │   ├── count.html
+    │   ├── email.html
+    │   ├── inc
+    │   │   ├── branding.html
+    │   │   └── title.html
+    │   ├── notice.html
+    │   ├── viewallemployees.html
+    │   ├── viewallmanagers.html
+    │   ├── viewallprojects.html
+    │   └── viewallrequests.html
+    ├── base.html
+    ├── base2.html
+    ├── employee
+    │   ├── attendance.html
+    │   ├── dashboard.html
+    │   ├── deleterequest.html
+    │   ├── empleaverequest.html
+    │   ├── leaverequest.html
+    │   ├── login.html
+    │   ├── myproject.html
+    │   ├── notice.html
+    │   ├── noticedetail.html
+    │   ├── projectdetails.html
+    │   ├── request.html
+    │   ├── requestdetails.html
+    │   ├── signup.html
+    │   ├── updaterequest.html
+    │   ├── updateskills.html
+    │   ├── viewallemployees.html
+    │   ├── viewallmanagers.html
+    │   └── viewleaverequest.html
+    └── manager
+        ├── attendance.html
+        ├── leaverequest.html
+        ├── leaveupdaterequest.html
+        ├── login.html
+        ├── m_dashboard.html
+        ├── managerrequest.html
+        ├── manleaverequest.html
+        ├── manrequestdetails.html
+        ├── mywork.html
+        ├── notice.html
+        ├── noticedetail.html
+        ├── request.html
+        ├── requestdetails.html
+        ├── updaterequest.html
+        ├── viewRequest.html
+        ├── viewallemployees.html
+        ├── viewallmanagers.html
+        ├── viewallprojects.html
+        ├── viewleaverequest.html
+        |__ viewproject.html
+```
+</details>
