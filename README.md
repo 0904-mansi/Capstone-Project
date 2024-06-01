@@ -40,6 +40,7 @@ Managers have access to specific functionalities that assist in managing project
 - Raise Leave Requests
 
 ### Manager Actions
+<img width="400" alt="image" src="https://github.com/0904-mansi/Capstone-Project/assets/81081105/05323d33-1f2d-42a0-8cb4-d0b60ac993d1">
 
 
 ## Employee
@@ -53,6 +54,10 @@ Employees have limited access to the system, focusing on updating personal infor
 - View All Employees (Including Managers)
 - View Attendance/Notices 
 - Raise Leave Requests
+
+### Employee Actions
+<img width="400" alt="image" src="https://github.com/0904-mansi/Capstone-Project/assets/81081105/ea075e24-70c7-46bf-98d8-f9f6d2f2008f">
+
 
 ## How to Use this Project?
 ***
