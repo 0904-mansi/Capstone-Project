@@ -229,3 +229,16 @@ TOTAL                                                                           
 ```
 
 ## View Live Coverage Report [here](https://unit-testcoverage.static.domains/)
+
+## Glimpse of the Project
+
+**Admin Login Page**            |  **Login Page**      | **Password Setup**
+:-------------------------:|:-------------------------:|:-------------------------:
+<img width="300" height="200" alt="Screenshot 2024-06-02 at 3 08 24 PM" src="https://github.com/0904-mansi/Capstone-Project/assets/81081105/4f09c1ea-95dd-4470-8228-215ec4c96e23"> | <img width="300" height="200" alt="Screenshot 2024-06-02 at 3 09 31 PM" src="https://github.com/0904-mansi/Capstone-Project/assets/81081105/e62ada2c-9d44-42f4-9eb4-55c5124bca2a"> | <img width="300" height="200" alt="Screenshot 2024-06-02 at 3 17 47 PM" src="https://github.com/0904-mansi/Capstone-Project/assets/81081105/a1cb1b22-614a-4336-9c0f-75047f8365a4">
+
+
+**Admin Dashboard**  | **Employee Dashboard**            |  **Manager Dashboard** 
+:-------------------------:|:-------------------------:|:-------------------------:
+<img width="300" height="200" alt="Screenshot 2024-06-02 at 3 13 14 PM" src="https://github.com/0904-mansi/Capstone-Project/assets/81081105/d668e6e2-0afd-4730-8b38-5aaf6dec9bdd"> | <img width="300" height="200" alt="Screenshot 2024-06-02 at 3 14 06 PM" src="https://github.com/0904-mansi/Capstone-Project/assets/81081105/a1eb497e-29e9-4c91-bd23-14625592c113"> | <img height="200" width="300" alt="Screenshot 2024-06-02 at 3 14 31 PM" src="https://github.com/0904-mansi/Capstone-Project/assets/81081105/a8473c96-3d80-4387-b9b4-82cc82d454e1">
+
+
