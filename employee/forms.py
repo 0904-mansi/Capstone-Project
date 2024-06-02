@@ -1,24 +1,6 @@
 from tkinter import Widget
 from django import forms
 from .models import *
-
-# class workform(forms.ModelForm):
-#     class Meta:
-#         model=workAssignments
-#         widgets={
-#             "assignDate" : forms.DateInput(attrs={'type':'datetime-local'}),
-#             "dueDate" : forms.DateInput(attrs={'type':'datetime-local'}),
-#             }
-#         labels={"assignerId" : "Select Your Id"}
-        
-#         fields=[
-#             "assignerId",
-#             "work",
-#             "assignDate",
-#             "dueDate",
-#             "taskerId",
-
-#         ]
         
 class makeRequestForm(forms.ModelForm):
     admin_id = forms.ModelChoiceField(queryset=User.objects.filter(is_superuser=True), label="Select Admin")
