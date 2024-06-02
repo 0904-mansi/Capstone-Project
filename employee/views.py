@@ -83,10 +83,10 @@ def empleaverequest(request):
                 Thank You!
                 Best Regards
             '''
-        from_email = "mansimishra510@gmail.com"  # Ensure you have set this in your settings
-        recipient_list = ['mansimishra2314@gmail.com']  # Replace with the recipient's email
+        from_email = "mansimishra510@gmail.com"  
+        recipient_list = ['mansimishra2314@gmail.com']  
         send_mail(subject, message, from_email, recipient_list)
-        return redirect('viewleaverequest')  # Redirect to a success page
+        return redirect('viewleaverequest')
     else:
         form = LeaveApplicationForm()
     return render(request, "employee/empleaverequest.html", {"form" : form})
