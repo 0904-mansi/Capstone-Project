@@ -246,7 +246,7 @@ TOTAL                                                                           
 <img width="300" height="200" alt="Screenshot 2024-06-04 at 10 28 26 AM" src="https://github.com/0904-mansi/Capstone-Project/assets/81081105/c4466be7-e762-4a30-9821-cd08e04efc47"> | <img width="300" height="200" alt="Screenshot 2024-06-04 at 10 28 48 AM" src="https://github.com/0904-mansi/Capstone-Project/assets/81081105/0f90b66a-64bf-44d2-a635-5eeb663e53f8"> | <img width="300" height="200" alt="Screenshot 2024-06-04 at 10 29 06 AM" src="https://github.com/0904-mansi/Capstone-Project/assets/81081105/893088dd-32f1-4ec3-a337-a24b064b2ad3">
 
 
-**My Project**  | **Project Details**              | **Fiter Employees**
+**My Project**  | **Project Details**              | **Filter Employees**
 :-------------------------:|:-------------------------:|:----------------------------:
 <img width="300" height="200" alt="Screenshot 2024-06-04 at 10 44 38 AM" src="https://github.com/0904-mansi/Capstone-Project/assets/81081105/0082c2be-6fa5-47f2-be73-5ed8e943ed69"> | <img width="300" height="200" alt="Screenshot 2024-06-04 at 10 44 55 AM" src="https://github.com/0904-mansi/Capstone-Project/assets/81081105/78469591-e898-4e5f-bb93-acdb8bf575ae"> | <img width="300" height="200" alt="Screenshot 2024-06-04 at 11 09 54 AM" src="https://github.com/0904-mansi/Capstone-Project/assets/81081105/4911ea40-3326-4e5d-9410-14933465cd2a">
 
