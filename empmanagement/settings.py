@@ -83,7 +83,7 @@ EMAIL_HOST = 'smtp.gmail.com'  # For example, using Gmail's SMTP server
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'mansimishra510@gmail.com'  # Your email address
-EMAIL_HOST_PASSWORD = 'ylnxoqqacfgcmdjj'  # Your email password
+EMAIL_HOST_PASSWORD = ''  # Your email password
 
 SILENCED_SYSTEM_CHECKS = ['models.E020']
 
