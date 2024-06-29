@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Management System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        form {
+            margin-top: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button.delete {
+            background-color: #f44336;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+    </style>
+    <script>
+         function addManager() {
+            const form = document.getElementById('addManagerForm');
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            fetch('/managers/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                window.location.reload();
+            })
+            .catch(error => {
+                alert('Error adding manager: ' + error);
+            });
+        }
+        function editManager(id, firstName, middleName, lastName, phoneNo, email, addharNo, dOB, salary, joinDate) {
+            document.getElementById('manager_id').value = id;
+            document.getElementById('first_name').value = firstName;
+            document.getElementById('middle_name').value = middleName;
+            document.getElementById('last_name').value = lastName;
+            document.getElementById('phone_no').value = phoneNo;
+            document.getElementById('email').value = email;
+            document.getElementById('addhar_no').value = addharNo;
+            document.getElementById('dob').value = dOB;
+            document.getElementById('salary').value = salary;
+            document.getElementById('join_date').value = joinDate;
+            document.getElementById('edit_manager_form').style.display = 'block';
+        }
+        
+        function deleteManager(id) {
+            if (confirm('Are you sure you want to delete this manager?')) {
+                fetch(`/managers/${id}`, {
+                    method: 'DELETE'
+                }).then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    } else {
+                        alert('Error deleting manager');
+                    }
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>All Managers</h2>
+        <ul>
+            {% for manager in managers %}
+            <li>
+                <span>ID: {{ manager.mID }}</span><br>
+                <span>Name: {{ manager.firstName }} {{ manager.middleName }} {{ manager.lastName }}</span><br>
+                <span>Email: {{ manager.email }}</span><br>
+                <span>Phone: {{ manager.phoneNo }}</span><br>
+                <span>Salary: {{ manager.salary }}</span><br>
+                <span>Join Date: {{ manager.joinDate }}</span><br>
+                <span>Phone: {{ manager.phoneNo }}</span><br>
+
+                <button onclick="editManager('{{ manager.mID }}', '{{ manager.firstName }}', '{{ manager.middleName }}', '{{ manager.lastName }}', '{{ manager.phoneNo }}', '{{ manager.email }}', '{{ manager.addharNo }}', '{{ manager.dOB }}', '{{ manager.salary }}', '{{ manager.joinDate }}')">Edit</button>
+                <button class="delete" onclick="deleteManager('{{ manager.mID }}')">Delete</button>
+            </li>
+            {% endfor %}
+        </ul>
+        <hr>
+        <!-- <h2>Add New Manager</h2>
+        <form action="/managers/" method="post">
+            <label for="first_name">ID:</label>
+            <input type="text" id="first_name" name="firstName" required><br>
+            
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="firstName" required><br>
+            <label for="middle_name">Middle Name:</label>
+            <input type="text" id="middle_name" name="middleName"><br>
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="lastName" required><br>
+            <label for="phone_no">Phone No:</label>
+            <input type="text" id="phone_no" name="phoneNo" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="addhar_no">Aadhaar No:</label>
+            <input type="text" id="addhar_no" name="addharNo" required><br>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dOB" required><br>
+            <label for="salary">Salary:</label>
+            <input type="number" id="salary" name="salary" required><br>
+            <label for="join_date">Join Date:</label>
+            <input type="date" id="join_date" name="joinDate" required><br>
+            <button type="submit">Add Manager</button>
+        </form> -->
+        <hr>
+        <div id="edit_manager_form" style="display:none;">
+            <h2>Edit Manager</h2>
+            <form action="/managers/" method="patch">
+                <label for="id">ID:</label>
+                <input type="text" id="manager_id" name="manager_id">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="firstName" required><br>
+                <label for="middle_name">Middle Name:</label>
+                <input type="text" id="middle_name" name="middleName"><br>
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="lastName" required><br>
+                <label for="phone_no">Phone No:</label>
+                <input type="text" id="phone_no" name="phoneNo" required><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="addhar_no">Aadhaar No:</label>
+                <input type="text" id="addhar_no" name="addharNo" required><br>
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dOB" required><br>
+                <label for="salary">Salary:</label>
+                <input type="number" id="salary" name="salary" required><br>
+                <label for="join_date">Join Date:</label>
+                <input type="date" id="join_date" name="joinDate" required><br>
+                <button type="submit">Update Manager</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

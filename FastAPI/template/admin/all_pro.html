@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #2A2C2E;
+            color: white;
+        }
+        .projects {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .projects h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        .projects ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 auto;
+            width: 60%;
+        }
+        .projects li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .projects li span {
+            display: block;
+        }
+        .projects li span:first-child {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .form-container {
+            display: none;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .form-container.open {
+            display: block;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button.cancel {
+            background-color: #f44336;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section class="projects">
+        <h2><b>All Projects</b></h2>
+        <ul>
+            {% for project in projects %}
+                <li>
+                    <span>{{ project.name }}</span>
+                    <span>ID: {{ project.id }}</span>
+                    <span>Description: {{ project.description }}</span>
+                    <span>Start Date: {{ project.start_date }}</span>
+                    <span>End Date: {{ project.end_date }}</span>
+                    <span>Manager ID: {{ project.project_manager_id }}</span>
+                    <span>Tasker ID: {{ project.tasker_id }}</span>
+                    <button class="update-button" data-project-id="{{ project.id }}">Update</button>
+                    <form class="form-container" id="form-{{ project.id }}">
+                        <label for="name-{{ project.id }}">Name</label>
+                        <input type="text" id="name-{{ project.id }}" name="name" value="{{ project.name }}">
+                        <label for="description-{{ project.id }}">Description</label>
+                        <input type="text" id="description-{{ project.id }}" name="description" value="{{ project.description }}">
+                        <label for="start_date-{{ project.id }}">Start Date</label>
+                        <input type="date" id="start_date-{{ project.id }}" name="start_date" value="{{ project.start_date }}">
+                        <label for="end_date-{{ project.id }}">End Date</label>
+                        <input type="date" id="end_date-{{ project.id }}" name="end_date" value="{{ project.end_date }}">
+                        <label for="manager_id-{{ project.id }}">Manager ID</label>
+                        <input type="number" id="manager_id-{{ project.id }}" name="manager_id" value="{{ project.project_manager_id }}">
+                        <label for="tasker_id-{{ project.id }}">Tasker ID</label>
+                        <input type="number" id="tasker_id-{{ project.id }}" name="tasker_id" value="{{ project.tasker_id }}">
+                        <button type="submit" class="save-button">Save</button>
+                        <button type="button" class="cancel update-button">Cancel</button>
+                    </form>
+                    <form action="/projects/{{ project.id }}" method="post">
+                        <input type="hidden" name="_method" value="delete">
+                        <button type="submit" onclick="return confirm('Are you sure you want to delete this project?')">Delete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <script>
+        // Script to toggle update form visibility
+        const updateButtons = document.querySelectorAll('.update-button');
+        updateButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const projectId = button.getAttribute('data-project-id');
+                const form = document.getElementById(`form-${projectId}`);
+                form.classList.toggle('open');
+            });
+        });
+
+        // Script to handle form submission for updating a project
+        const updateForms = document.querySelectorAll('.form-container');
+        updateForms.forEach(form => {
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const projectId = form.getAttribute('id').split('-')[1];
+                const updatedProject = {
+                    id: projectId,
+                    name: document.getElementById(`name-${projectId}`).value,
+                    description: document.getElementById(`description-${projectId}`).value,
+                    start_date: document.getElementById(`start_date-${projectId}`).value,
+                    end_date: document.getElementById(`end_date-${projectId}`).value,
+                    project_manager_id: parseInt(document.getElementById(`manager_id-${projectId}`).value),
+                    tasker_id: parseInt(document.getElementById(`tasker_id-${projectId}`).value)
+                };
+
+                fetch(`/projects/${projectId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(updatedProject),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to update project');
+                    }
+                    window.location.reload(); // Refresh the page after successful update
+                })
+                .catch(error => console.error('Error updating project:', error));
+            });
+        });
+    </script>
+</body>
+</html>

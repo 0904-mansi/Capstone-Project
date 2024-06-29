@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Employees</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #2A2C2E;
+            color: white;
+        }
+        .employees {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .employees h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        .employees ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 auto;
+            width: 60%;
+        }
+        .employees li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .employees li span {
+            display: block;
+        }
+        .employees li span:first-child {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <section class="employees">
+        <h2><b>All Employees</b></h2>
+        <ul>
+            {% for employee in employees %}
+                <li>
+                    <span>{{ employee.firstName }} {{ employee.lastName }}</span>
+                    <span>ID: {{ employee.eID }}</span>
+                    <span>Email: {{ employee.email }}</span>
+                    <span>Phone: {{ employee.phoneNo }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Leave Requests</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #2A2C2E;
+            color: white;
+        }
+        .leave-requests {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .leave-requests h2, .leave-requests h3 {
+            color: white;
+        }
+        .leave-requests ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 auto;
+            width: 60%;
+        }
+        .leave-requests li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .leave-requests li span {
+            display: block;
+        }
+        .leave-requests li span:first-child {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .button {
+            margin: 5px;
+            padding: 5px 10px;
+            color: white;
+            background-color: #5A9;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .button.reject {
+            background-color: #A55;
+        }
+    </style>
+    <script>
+        async function updateStatus(leaveType, leaveId, status) {
+            const response = await fetch(`/leave_requests/${leaveType}/${leaveId}/status`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({status: status})
+            });
+            if (response.ok) {
+                location.reload();
+            } else {
+                alert('Failed to update status');
+            }
+        }
+    </script>
+</head>
+<body>
+    <section class="leave-requests">
+        <h2><b>All Leave Requests</b></h2>
+        
+        <h3><b>Employee Leave Requests</b></h3>
+        <ul>
+            {% for leave in employee_leaves %}
+                <li>
+                    <span>Employee ID: {{ leave.employee_id }}</span>
+                    <span>Start Date: {{ leave.start_date }}</span>
+                    <span>End Date: {{ leave.end_date }}</span>
+                    <span>Reason: {{ leave.reason }}</span>
+                    <span>Status: {{ leave.status }}</span>
+                    <button class="button approve" onclick="updateStatus('employee', {{ leave.id }}, 'Approved')">Approve</button>
+                    <button class="button reject" onclick="updateStatus('employee', {{ leave.id }}, 'Rejected')">Reject</button>
+                </li>
+            {% endfor %}
+        </ul>
+        
+        <h3><b>Manager Leave Requests</b></h3>
+        <ul>
+            {% for leave in manager_leaves %}
+                <li>
+                    <span>Manager ID: {{ leave.manager_id }}</span>
+                    <span>Start Date: {{ leave.start_date }}</span>
+                    <span>End Date: {{ leave.end_date }}</span>
+                    <span>Reason: {{ leave.reason }}</span>
+                    <span>Status: {{ leave.status }}</span>
+                    <button class="button approve" onclick="updateStatus('manager', {{ leave.id }}, 'Approved')">Approve</button>
+                    <button class="button reject" onclick="updateStatus('manager', {{ leave.id }}, 'Rejected')">Reject</button>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>

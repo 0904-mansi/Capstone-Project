@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Managers</title>
+    <style>
+        body {
+            margin-left: 350px;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #2A2C2E;
+            color: white;
+            width: 60%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background-color: #2A2C2E;
+        }
+    </style>
+</head>
+<body>
+    <h1>View Managers</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Manager ID</th>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Aadhar Number</th>
+                <th>Date of Birth</th>
+                <th>Salary</th>
+                <th>Join Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for manager in managers %}
+            <tr>
+                <td>{{ manager.mID }}</td>
+                <td>{{ manager.firstName }}</td>
+                <td>{{ manager.middleName }}</td>
+                <td>{{ manager.lastName }}</td>
+                <td>{{ manager.phoneNo }}</td>
+                <td>{{ manager.email }}</td>
+                <td>{{ manager.addharNo }}</td>
+                <td>{{ manager.dOB }}</td>
+                <td>{{ manager.salary }}</td>
+                <td>{{ manager.joinDate }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
